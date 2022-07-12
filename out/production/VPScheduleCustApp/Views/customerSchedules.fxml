@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="570.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.custSchedulesController">
+   <children>
+      <TableView fx:id="custSchedulesTableView" layoutX="20.0" layoutY="162.0" prefHeight="287.0" prefWidth="960.0">
+        <columns>
+          <TableColumn fx:id="apptIDCol" prefWidth="53.0" text="Appt. ID" />
+          <TableColumn fx:id="titleCol" prefWidth="88.0" text="Title" />
+            <TableColumn fx:id="descriptionCol" prefWidth="109.0" text="Description" />
+            <TableColumn fx:id="locationCol" prefWidth="89.0" text="Location" />
+            <TableColumn fx:id="contactCol" prefWidth="79.0" text="Contact" />
+            <TableColumn fx:id="typeCol" prefWidth="119.0" text="Type" />
+            <TableColumn fx:id="startDateTimeCol" prefWidth="116.0" text="Start Date/Time" />
+            <TableColumn fx:id="endDateTimeCol" prefWidth="113.0" text="End Date/Time" />
+            <TableColumn fx:id="custIDCol" minWidth="7.0" prefWidth="99.0" text="Cust. ID" />
+            <TableColumn fx:id="userIDCol" prefWidth="94.0" text="User ID" />
+        </columns>
+      </TableView>
+      <Label layoutX="20.0" layoutY="62.0" text="Customer Schedules">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="780.0" layoutY="456.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionDeleteCustAppt" text="Delete">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionModifyCustAppt" text="Modify">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionAddCustAppt" text="Add">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="456.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionBackToMainMenu" text="Back" />
+         </children>
+      </HBox>
+      <Label layoutX="20.0" layoutY="126.0" text="View Apppointments By:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="182.0" layoutY="112.0" prefHeight="48.0" prefWidth="331.0">
+         <children>
+            <RadioButton fx:id="allRBtn" mnemonicParsing="false" onAction="#onActionViewAll" selected="true" text="All">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="viewButtonGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="monthRBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionViewByMonth" text="Month" toggleGroup="$viewButtonGroup">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="weekRBtn" layoutX="97.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionViewByWeek" text="Week" toggleGroup="$viewButtonGroup">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </RadioButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

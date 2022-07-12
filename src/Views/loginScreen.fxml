@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginController">
+   <children>
+      <Label fx:id="loginTitletxt" layoutX="176.0" layoutY="119.0" text="Log-In" textAlignment="CENTER" />
+      <TextField fx:id="usernameInputTXT" layoutX="126.0" layoutY="210.0" />
+      <TextField fx:id="passwordInputTXT" layoutX="126.0" layoutY="293.0" />
+      <Label fx:id="userNametxt" layoutX="126.0" layoutY="185.0" text="Username" />
+      <Label fx:id="passwordTxt" layoutX="126.0" layoutY="269.0" text="Password" />
+      <HBox layoutX="115.0" layoutY="362.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#onActionLogin" text="Login" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="60.0" top="20.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <Label fx:id="userLocationLabel" layoutX="182.0" layoutY="150.0" prefHeight="17.0" prefWidth="149.0" />
+      <Label fx:id="locationTxtLabel" layoutX="103.0" layoutY="150.0" text="Location" />
+   </children>
+</AnchorPane>
