@@ -31,7 +31,11 @@ public class addCustomerApptController implements Initializable {
     // To convert local time to EST time
     private ZonedDateTime startDateConvert;
     private ZonedDateTime endDateConvert;
-
+    /**
+     * Method to convert local to EST
+     * @param t LocalDateTime object
+     * @return EST time of the local time
+     */
     private ZonedDateTime convertTimeToEST(LocalDateTime t){
         return ZonedDateTime.of(t, ZoneId.of("America/New_York"));
     }
@@ -69,6 +73,29 @@ public class addCustomerApptController implements Initializable {
     @FXML
     private ComboBox<User> userIDCBox;
 
+    public void onActionContactCBox(ActionEvent actionEvent) {
+    }
+
+    public void onActionTypeCBox(ActionEvent actionEvent) {
+    }
+
+    public void onActionCustIDCBox(ActionEvent actionEvent) {
+    }
+
+    public void onActionUserIDCBox(ActionEvent actionEvent) {
+    }
+
+    public void onActionStartDate(ActionEvent actionEvent) {
+    }
+
+    public void onActionEndDate(ActionEvent actionEvent) {
+    }
+
+    public void onActionStartTimeCBox(ActionEvent actionEvent) {
+    }
+
+    public void onActionEndTimeCBox(ActionEvent actionEvent) {
+    }
 
 
     /**
@@ -275,6 +302,10 @@ try {
     }
 
     @Override
+    /**
+     * Initializes the combo boxes and time selections
+     * Lambda #1 gets the customer id from each customer
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //prepopulate the user id combo box
@@ -287,6 +318,7 @@ try {
         // customer id combo box
         ObservableList<Customer> allCustomers = CustomerDAO.getCustomers();
         ObservableList<Integer> allCustomersID = FXCollections.observableArrayList();
+        // lambda #1
         allCustomers.forEach(c->allCustomersID.add(c.getCustomer_id()));
         custIDCBox.setItems(allCustomersID);
 
@@ -304,4 +336,6 @@ try {
         endTimeCBox.setItems(apptTimes);
 
     }
+
+
 }

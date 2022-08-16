@@ -51,10 +51,11 @@ public class addCustomerRecordController implements Initializable {
 
 
     @FXML
-    /*
-      Country Combo/drop-down
-      Records which country the user chooses, and by that choice, determines which
-      first-level divisions will be displayed in the firstLvlDivBox (combo box)
+    /**
+     *  Country Combo/drop-down
+     *  Records which country the user chooses, and by that choice, determines which
+     *  first-level divisions will be displayed in the firstLvlDivBox (combo box)
+     *  Lambda #2 sorts divisions into a specific country's divisions list
      */
     void onActionCountryCBox(ActionEvent event) {
 
@@ -70,6 +71,7 @@ public class addCustomerRecordController implements Initializable {
 
             // goes through the divisions list and places/sorts them into a country's division list
             // based on their country's id
+            // lambda #2
             allFirstLvlDivs.forEach(div -> {
                 if (div.getCountry_id() == 1) {
                     USDivs.add(div.getDivision_name());
@@ -168,6 +170,11 @@ public class addCustomerRecordController implements Initializable {
 
 
     @Override
+    /**
+     * Initializes the combo boxes
+     * Lambda #4 gets country names from each Country object in list
+     * Lambda #5 gets division names from each FirstLevelDivision object in list
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // display pre-populated  data in country and division combo boxes
         ObservableList<Country> allCountries = CountryDAO.getCountries();
@@ -177,10 +184,12 @@ public class addCustomerRecordController implements Initializable {
         ObservableList<String> allDivNames = FXCollections.observableArrayList();
 
         // for each country, gets their names and set them in combo box
+        // lambda #4
         allCountries.forEach(c-> allCountryNames.add(c.getCountry_Name()));
         countryCBox.setItems(allCountryNames);
 
         // for each division, gets their names and set them in combo box
+        // lambda #5
         allDivs.forEach(d -> allDivNames.add(d.getDivision_name()));
         firstLvlDivCBox.setItems(allDivNames);
 

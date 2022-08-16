@@ -39,7 +39,7 @@ public class reportsController implements Initializable {
     private TableColumn<?, String> monthColR2;
 
     @FXML
-    private TableColumn<?, Integer> totalMonthR2; // total appts per month
+    private TableColumn<?, Integer> totalMonthR2;
 
     @FXML
     private TableView<ReportByMonth> monthTotalApptTableView;
@@ -86,7 +86,7 @@ public class reportsController implements Initializable {
     @FXML
     /**
      * Back button, takes user back to the main menu
-     * @param event clciks on back button
+     * @param event clicks on back button
      */
     void onActionBackToMainMenu(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -135,11 +135,19 @@ public class reportsController implements Initializable {
     }
 
     @Override
+    /**
+     * Initializes the reports with data based from the database
+     * Lambda #11 gets contact name from each contact object
+     * Lambda #12 gets the type from each appointment object
+     * Lambda #13 gets the starting month from each appointment object and adds it the apptMonth list
+     * Lambda #14 filters through the list, if the month has not been already added, adds it to list
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // initialize the contact box (list all contact names to select from)
         ObservableList<Contact> allContacts = ContactDAO.getContacts();
         ObservableList<String> allContactNames = FXCollections.observableArrayList();
+        // lambda #11
         allContacts.forEach(c -> allContactNames.add(c.getContact_name()));
         contactCBox.setItems(allContactNames);
 
@@ -164,12 +172,12 @@ public class reportsController implements Initializable {
         ObservableList<ReportByMonth> repMonths = FXCollections.observableArrayList(); // hold months
 
         // gets the type from each appointment
-        getAllAppts.forEach(appt -> apptType.add(appt.getType()));
+        getAllAppts.forEach(appt -> apptType.add(appt.getType())); // lambda #12
         // goes through the list of appts, for each appt element of stream,
         // gets the starting month and adds it the apptMonth list
-        getAllAppts.stream().map(appt -> appt.getStart().getMonth()).forEach(apptMonth::add);
+        getAllAppts.stream().map(appt -> appt.getStart().getMonth()).forEach(apptMonth::add);//lambda #13
         // filters through the list, if the month has not been already added, add it to list
-        apptMonth.stream().filter(month -> !monthOfAppt.contains(month)).forEach(monthOfAppt::add);
+        apptMonth.stream().filter(month -> !monthOfAppt.contains(month)).forEach(monthOfAppt::add);// lambda #14
 
         // goes through list of types returned from the appts,
         // will only add unique/different types to list (no repeats)
@@ -208,7 +216,7 @@ public class reportsController implements Initializable {
         ObservableList<ReportCountry> groupCountries = null;
         try {
             groupCountries = ReportDAO.getCountries();
-            // the tallies from countries are put into a seperate list
+            // the tallies from countries are put into a separate list
             ObservableList<ReportCountry> addCountry = FXCollections.observableArrayList();
 
             groupCountries.forEach(addCountry::add);// adds the total by each country
