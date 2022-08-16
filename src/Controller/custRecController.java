@@ -49,11 +49,11 @@ public class custRecController implements Initializable {
     @FXML
     private TableColumn<?, Integer> postalCodeCol;
 
-    @FXML
     /**
      * Add Button takes user to the add customer record form
      * @param event click on Add button
      */
+    @FXML
     void onActionAddCustRec(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/addCustomerRecord.fxml"));
@@ -96,11 +96,11 @@ public class custRecController implements Initializable {
             return false;
         }
     }
-    @FXML
     /**
      * Deletes a customer record from table
      * Must have checkCustAppts return true in order to delete
      */
+    @FXML
     void onActionDeleteCustRec(ActionEvent event) {
         // users chooses which customer to delete on table
         Customer selectedCustomer = custRecordsTableView.getSelectionModel().getSelectedItem();
@@ -132,13 +132,13 @@ public class custRecController implements Initializable {
         }
     }
 
-    @FXML
     /**
      * Modify Button
      * User selects a customer row they want to modify data, sends the selection
      * of data to the modify customer form
      * @param event clicking on the Modify button
      */
+    @FXML
     void onActionModifyCustRec(ActionEvent event) throws IOException {
         // sends the data that user selects to the modify customer form
         modifyCustomerRecordController.sendSelectedCustomer(custRecordsTableView.getSelectionModel().getSelectedItem());
@@ -149,11 +149,10 @@ public class custRecController implements Initializable {
         stage.show();
     }
 
-
-    @Override
     /**
      * Initializes the customer record tableview
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     // initializes the records of customers in the table view
         // list to get all customer and their data to set into table

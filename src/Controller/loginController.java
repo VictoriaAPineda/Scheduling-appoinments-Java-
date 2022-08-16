@@ -133,6 +133,11 @@ public class loginController implements Initializable {
 
     }
 
+    /**
+     * Initilizes the login screen, gets local timezone and language
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

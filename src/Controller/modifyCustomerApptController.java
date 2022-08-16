@@ -103,11 +103,11 @@ public class modifyCustomerApptController implements Initializable {
 
     }
 
-    @FXML
     /**
      *Back button, takes user back to customer schedules tableview
      * @param event clicks on Back button
      */
+    @FXML
     void onActionGoToCustAppts(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/customerSchedules.fxml"));
@@ -115,11 +115,11 @@ public class modifyCustomerApptController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * Save button, saves the modified/updated data made by the user
      * @param event cics on Save button
      */
+    @FXML
     void onActionSave(ActionEvent event) {
         try {
             // Checks to make sure the new changes are valid
@@ -342,11 +342,11 @@ public class modifyCustomerApptController implements Initializable {
         selectedAppt = a;
     }
 
-    @Override
     /**
      * Initializes the modify customer form with pre-written/selected data
      * Lambda #8 gets customer id from each customer object
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // display pre-populated form
 

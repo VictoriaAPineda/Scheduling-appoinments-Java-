@@ -83,11 +83,11 @@ public class reportsController implements Initializable {
     @FXML
     private TableColumn<?, String> typeCol;
 
-    @FXML
     /**
      * Back button, takes user back to the main menu
      * @param event clicks on back button
      */
+    @FXML
     void onActionBackToMainMenu(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/mainMenu.fxml"));
@@ -95,13 +95,13 @@ public class reportsController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * Report #1
      * Contact box, user selects a contact and table will display all
      * appointments that contact has.
      * @param event selects a contact's name from drop down box
      */
+    @FXML
     void onActionContactCBox(ActionEvent event) {
         try {
             // contact selected
@@ -134,7 +134,6 @@ public class reportsController implements Initializable {
 
     }
 
-    @Override
     /**
      * Initializes the reports with data based from the database
      * Lambda #11 gets contact name from each contact object
@@ -142,6 +141,7 @@ public class reportsController implements Initializable {
      * Lambda #13 gets the starting month from each appointment object and adds it the apptMonth list
      * Lambda #14 filters through the list, if the month has not been already added, adds it to list
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // initialize the contact box (list all contact names to select from)

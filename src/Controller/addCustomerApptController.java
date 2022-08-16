@@ -300,12 +300,11 @@ try {
 
         return true;
     }
-
-    @Override
     /**
      * Initializes the combo boxes and time selections
      * Lambda #1 gets the customer id from each customer
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //prepopulate the user id combo box

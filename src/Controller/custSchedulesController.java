@@ -74,11 +74,11 @@ public class custSchedulesController implements Initializable {
     @FXML
     private RadioButton weekRBtn;
 
-    @FXML
     /**
      * Add button, takes user to the add customer appointment form
      * @param event clicks on Add button
      */
+    @FXML
     void onActionAddCustAppt(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/addCustomerAppt.fxml"));
@@ -86,11 +86,11 @@ public class custSchedulesController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * Back button, takes user back to the main menu
      * @param event clicks the Back button
      */
+    @FXML
     void onActionBackToMainMenu(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/mainMenu.fxml"));
@@ -98,12 +98,12 @@ public class custSchedulesController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * User selects a appointment from tableview then clicks Delete button
      * to remove the appointment
      * @param event clicks the Delete button
      */
+    @FXML
     void onActionDeleteCustAppt(ActionEvent event) {
         // the appointment the user has selected
        Appointment selectedAppt = custSchedulesTableView.getSelectionModel().getSelectedItem();
@@ -133,12 +133,12 @@ public class custSchedulesController implements Initializable {
         }
     }
 
-    @FXML
     // btn to Modify Customer Appointment Form
     /**
      * Modify Button, takes user to the modify appointment form
      * @param event clicks on the Modify button
      */
+    @FXML
     void onActionModifyCustAppt(ActionEvent event) throws IOException {
        // send the selected data from the table to the modify form
         modifyCustomerApptController.sendSelectedAppointment(custSchedulesTableView.getSelectionModel().getSelectedItem());
@@ -149,11 +149,11 @@ public class custSchedulesController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * View All appointments
      * @param event click on All radio button
      */
+    @FXML
     void onActionViewAll(ActionEvent event) {
         ObservableList<Appointment> allAppts = AppointmentDAO.getAppointments() ;
 
@@ -164,13 +164,13 @@ public class custSchedulesController implements Initializable {
         }
     }
 
-    @FXML
     /**
      * Views appointments within a month/range of 30 days from today
      * Lambda #6 for each appointment, add those who are within a 30 day range
      * into apptsForMonth list
      * @param event clicking the Month radio button
      */
+    @FXML
     void onActionViewByMonth(ActionEvent event) {
         ObservableList<Appointment> allAppts = AppointmentDAO.getAppointments();
         ObservableList<Appointment> apptsForMonth = FXCollections.observableArrayList();
@@ -190,13 +190,13 @@ public class custSchedulesController implements Initializable {
 
     }
 
-    @FXML
     /**
      * View appointment by a range of a week
      * Lambda #7 for each appointments, adds those that are wihtin a week range
      * into apptsForWeek list
      * @param event clicks on the Week radio button
      */
+    @FXML
     void onActionViewByWeek(ActionEvent event) {
         ObservableList<Appointment> allAppts = AppointmentDAO.getAppointments();
         ObservableList<Appointment> apptsForWeek = FXCollections.observableArrayList();
@@ -215,11 +215,10 @@ public class custSchedulesController implements Initializable {
         }
     }
 
-
-    @Override
     /**
      * Initializes the customer schedules table
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // setup for initializing the table with data

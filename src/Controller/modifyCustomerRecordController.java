@@ -53,7 +53,6 @@ public class modifyCustomerRecordController implements Initializable {
     @FXML
     private ComboBox<String> firstLvlCBox;
 
-    @FXML
     /**
      * Country drop-down box
      * selection will affect what is displayed in the division drop down box
@@ -61,6 +60,7 @@ public class modifyCustomerRecordController implements Initializable {
      * based on their country's id
      * @param event user selects a country
      */
+    @FXML
     void onActionCountryCBox(ActionEvent event) {
         try {
             // gets what the user selects from combo box
@@ -105,11 +105,11 @@ public class modifyCustomerRecordController implements Initializable {
 
     }
 
-    @FXML
     /**
      * Back button, takes user back to customer records view
      * @param event clicks on Back button
      */
+    @FXML
     void onActionReturnBtn(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/customerRecords.fxml"));
@@ -134,11 +134,11 @@ public class modifyCustomerRecordController implements Initializable {
         return true;
     }
 
-    @FXML
     /**
      * Save button, saves the modified customer records data to database
      * @param event clicks on Save button
      */
+    @FXML
     void onActionSaveBtn(ActionEvent event) {
         try {
             // value true if not empty, false if there are empty fields
@@ -176,11 +176,11 @@ public class modifyCustomerRecordController implements Initializable {
         selectedCustomer = c;
     }
 
-    @Override
     /**
      * Initializes the modify customer form with pre-written/selected data
      * Lambda #10 gets the name from each country object
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // Display the existing customer info / pre-populates

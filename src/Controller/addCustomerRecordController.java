@@ -49,14 +49,13 @@ public class addCustomerRecordController implements Initializable {
     private ComboBox<String> countryCBox;
 
 
-
-    @FXML
     /**
      *  Country Combo/drop-down
      *  Records which country the user chooses, and by that choice, determines which
      *  first-level divisions will be displayed in the firstLvlDivBox (combo box)
      *  Lambda #2 sorts divisions into a specific country's divisions list
      */
+    @FXML
     void onActionCountryCBox(ActionEvent event) {
 
         try {
@@ -103,11 +102,11 @@ public class addCustomerRecordController implements Initializable {
     void onActionFirstLvlDivCBox(ActionEvent event) {
     }
 
-    @FXML
     /**
      * Cancel button, when clicked, takes user back to customer records tableview
      * @param event button click on Cancel
      */
+    @FXML
     void onActionReturnBtn(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scence = FXMLLoader.load(getClass().getResource("/Views/customerRecords.fxml"));
@@ -115,12 +114,12 @@ public class addCustomerRecordController implements Initializable {
         stage.show();
     }
 
-    @FXML
     /**
      * Save button, commits a new customer record to the table
      * based on what the user has inputted into the Add Customer Form
      * @param event button click on Save
      */
+    @FXML
     void onActionSaveBtn(ActionEvent event) {
         try {
             // returns true/false depending if form is filled out
@@ -168,13 +167,12 @@ public class addCustomerRecordController implements Initializable {
         return true;
     }
 
-
-    @Override
     /**
      * Initializes the combo boxes
      * Lambda #4 gets country names from each Country object in list
      * Lambda #5 gets division names from each FirstLevelDivision object in list
      */
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // display pre-populated  data in country and division combo boxes
         ObservableList<Country> allCountries = CountryDAO.getCountries();
