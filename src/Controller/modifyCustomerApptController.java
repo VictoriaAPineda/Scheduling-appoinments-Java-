@@ -35,7 +35,11 @@ public class modifyCustomerApptController implements Initializable {
     private ZonedDateTime startDateConvert;
     private ZonedDateTime endDateConvert;
 
-    // method to convert local to EST
+    /**
+     * Method to convert local to EST
+     * @param t LocalDateTime object
+     * @return EST time of the local time
+     */
     private ZonedDateTime convertTimeToEST(LocalDateTime t){
         return ZonedDateTime.of(t, ZoneId.of("America/New_York"));
     }
@@ -339,6 +343,10 @@ public class modifyCustomerApptController implements Initializable {
     }
 
     @Override
+    /**
+     * Initializes the modify customer form with pre-written/selected data
+     * Lambda #8 gets customer id from each customer object
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // display pre-populated form
 
@@ -386,6 +394,7 @@ public class modifyCustomerApptController implements Initializable {
         // customer id combo box
         ObservableList<Customer> allCustomers = CustomerDAO.getCustomers();
         ObservableList<Integer> allCustomersID = FXCollections.observableArrayList();
+        // lambda #8
         allCustomers.forEach(c->allCustomersID.add(c.getCustomer_id()));
         cusomterIDCBox.setItems(allCustomersID);
 

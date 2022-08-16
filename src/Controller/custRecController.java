@@ -133,7 +133,6 @@ public class custRecController implements Initializable {
     }
 
     @FXML
-
     /**
      * Modify Button
      * User selects a customer row they want to modify data, sends the selection
@@ -152,6 +151,9 @@ public class custRecController implements Initializable {
 
 
     @Override
+    /**
+     * Initializes the customer record tableview
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
     // initializes the records of customers in the table view
         // list to get all customer and their data to set into table

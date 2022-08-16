@@ -167,6 +167,8 @@ public class custSchedulesController implements Initializable {
     @FXML
     /**
      * Views appointments within a month/range of 30 days from today
+     * Lambda #6 for each appointment, add those who are within a 30 day range
+     * into apptsForMonth list
      * @param event clicking the Month radio button
      */
     void onActionViewByMonth(ActionEvent event) {
@@ -177,6 +179,7 @@ public class custSchedulesController implements Initializable {
         LocalDateTime endMonth = LocalDateTime.now().plusMonths(1);// range end
 
         if(allAppts != null){
+            // lambda #6
             allAppts.forEach(appt ->{
                 if(appt.getEnd().isAfter(beginMonth) && appt.getEnd().isBefore(endMonth)){
                     apptsForMonth.add(appt);
@@ -190,6 +193,8 @@ public class custSchedulesController implements Initializable {
     @FXML
     /**
      * View appointment by a range of a week
+     * Lambda #7 for each appointments, adds those that are wihtin a week range
+     * into apptsForWeek list
      * @param event clicks on the Week radio button
      */
     void onActionViewByWeek(ActionEvent event) {
@@ -200,6 +205,7 @@ public class custSchedulesController implements Initializable {
         LocalDateTime endWeek = LocalDateTime.now().plusWeeks(1);
 
         if(allAppts != null){
+            // lambda #7
             allAppts.forEach(appt->{
                 if(appt.getEnd().isAfter(beginWeek) && appt.getEnd().isBefore(endWeek)){
                    apptsForWeek.add(appt);
@@ -211,6 +217,9 @@ public class custSchedulesController implements Initializable {
 
 
     @Override
+    /**
+     * Initializes the customer schedules table
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // setup for initializing the table with data

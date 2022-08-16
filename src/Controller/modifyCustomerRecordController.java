@@ -56,7 +56,9 @@ public class modifyCustomerRecordController implements Initializable {
     @FXML
     /**
      * Country drop-down box
-     * slection will affect what is disaplyed in the division drop down box
+     * selection will affect what is displayed in the division drop down box
+     * Lambda #9 sorts each divisions into a specific country's allFirstDivs list
+     * based on their country's id
      * @param event user selects a country
      */
     void onActionCountryCBox(ActionEvent event) {
@@ -70,8 +72,9 @@ public class modifyCustomerRecordController implements Initializable {
             ObservableList<String> UKDivs = FXCollections.observableArrayList();
             ObservableList<String> CADivs = FXCollections.observableArrayList();
 
-            // goes through each divions on list, sorts them into a country's div based on their
+            // goes through each divisions on list, sorts them into a country's div based on their
             // country id
+            //lambda #9
             allFirstLvlDivs.forEach(div -> {
                 if (div.getCountry_id() == 1) {
                     USDivs.add(div.getDivision_name());// adds name to the corresponding division list
@@ -174,6 +177,10 @@ public class modifyCustomerRecordController implements Initializable {
     }
 
     @Override
+    /**
+     * Initializes the modify customer form with pre-written/selected data
+     * Lambda #10 gets the name from each country object
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // Display the existing customer info / pre-populates
@@ -191,7 +198,7 @@ public class modifyCustomerRecordController implements Initializable {
 
         ObservableList<FirstLevelDivision> allDivs = FirstLevelDivisionDAO.getFirstLevelDivisions();
         ObservableList<String> allDivNames = FXCollections.observableArrayList();
-
+        // lambda #10
         allCountries.forEach(c-> allCountryNames.add(c.getCountry_Name()));
         countryCBox.setItems(allCountryNames);
         String countryName= "";
@@ -202,9 +209,9 @@ public class modifyCustomerRecordController implements Initializable {
                 countryID1 = div1.getCountry_id();
                 divName = div1.getDivision_name();
                 for (Country c: allCountries){
-                    if(c.getCountry_id() == countryID1){
+                    if(c.getCountry_id() == countryID1){// match the country id with teh division's country id
                         countryName =c.getCountry_Name();
-                        break;
+                        break;// once found break out
                     }
                 }
                 break;
@@ -214,11 +221,13 @@ public class modifyCustomerRecordController implements Initializable {
         for(FirstLevelDivision div1:allDivs){
             if(div1.getCountry_id()== countryID1){
                 allDivNames.add(div1.getDivision_name());
+                // display only the list of division names based on current
+                // selected country
             }
         }
 
-        firstLvlCBox.setItems(allDivNames);
-        firstLvlCBox.setValue(divName);
-        countryCBox.setValue(countryName);
+        firstLvlCBox.setItems(allDivNames);// displays current division list
+        firstLvlCBox.setValue(divName);// display currently selected division
+        countryCBox.setValue(countryName);// displays current country selected
     }
 }
