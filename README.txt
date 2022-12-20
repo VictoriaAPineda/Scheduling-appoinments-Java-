@@ -4,7 +4,7 @@ Purpose of Application:
 To create a GUI-based application for scheduling appoinments.
 
 Author: Victoria A. Pineda
-Contact Information:  vpined7@my.wgu.edu
+Contact Information: -
 Student Application Version: 1.0
 Date: 08/12/2022
 
